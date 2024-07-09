@@ -1,0 +1,45 @@
+@startuml
+class Main {
++ {static} void main(String[])
+}
+
+class CodecFactory {
++ {static} Codec extract(VideoFile)
+}
+
+class VideoConversionFacade {
++ File convertVideo(String,String)
+}
+
+class BitrateReader {
++ {static} VideoFile read(VideoFile,Codec)
++ {static} VideoFile convert(VideoFile,Codec)
+}
+
+class OggCompressionCodec {
++ String type
+}
+
+class AudioMixer {
++ File fix(VideoFile)
+}
+
+class VideoFile {
+- String name
+- String codecType
++ String getCodecType()
++ String getName()
+}
+
+
+interface Codec {
+}
+class MPEG4CompressionCodec {
++ String type
+}
+
+
+
+Codec <|.. OggCompressionCodec
+Codec <|.. MPEG4CompressionCodec
+@enduml
